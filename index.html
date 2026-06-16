@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAER Admin - Controle de Metas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="SaerLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>🇸🇦 SAER - Controle de Metas</h1>
+        <span class="semana" id="semanaAtual"></span>
+    </header>
+
+    <main class="container">
+        <!-- Área de entrada de texto -->
+        <section class="entrada-sec">
+            <h2>📋 Colar Ranking de Horas</h2>
+            <p class="instrucao">Cole o ranking no formato: <strong>@[TAG] Nome | número | ID — Xh:Xmin:Xs</strong></p>
+            <textarea id="entradaHoras" placeholder="Exemplo:
+@[ESC] Carpa | 1208 | 910951838260559973 — 2h:23min:35s
+@[CMD SAER] Scott | 525318781451501569 — 0h:0min:1s
+@[SUB CMD SAER] Pitoco | 987654321098765 — 3h:15min:20s"></textarea>
+            <button class="btn-processar" onclick="processarHoras()">🔍 Processar Horas</button>
+            <span style="color:#666;font-size:12px;margin-left:10px;">Ctrl+Enter</span>
+        </section>
+
+        <!-- Resumo -->
+        <section class="resumo-sec">
+            <div class="resumo-card total">
+                <span class="resumo-numero" id="totalMembros">0</span>
+                <span class="resumo-label">Total Membros</span>
+            </div>
+            <div class="resumo-card batido">
+                <span class="resumo-numero" id="metaBatida">0</span>
+                <span class="resumo-label">Meta Batida ✅</span>
+            </div>
+            <div class="resumo-card pendente">
+                <span class="resumo-numero" id="metaPendente">0</span>
+                <span class="resumo-label">Meta Pendente ❌</span>
+            </div>
+            <div class="resumo-card naoRegistrado">
+                <span class="resumo-numero" id="naoRegistrado">0</span>
+                <span class="resumo-label">Não Registrado ⚠️</span>
+            </div>
+        </section>
+
+        <!-- Configuração de metas -->
+        <section class="config-sec">
+            <h3>⚙️ Configuração de Metas</h3>
+            <div class="config-grid">
+                <div class="config-item">👑 Comando: <strong>Isento</strong></div>
+                <div class="config-item">⚙️ Administrador: <strong>Isento</strong></div>
+                <div class="config-item">⭐ Elite: <strong>4 horas</strong></div>
+                <div class="config-item">🪽 Anjo Negro: <strong>2 horas</strong></div>
+                <div class="config-item">🦅 CORE: <strong>45 minutos</strong></div>
+            </div>
+        </section>
+
+        <!-- Tabela de membros -->
+        <section class="tabela-sec">
+            <h2>👥 Resultado do Processamento</h2>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>ID Discord</th>
+                            <th>Patente</th>
+                            <th>Meta</th>
+                            <th>Horas</th>
+                            <th>Status</th>
+                            <th>Faltam</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaMembros">
+                        <tr class="vazio">
+                            <td colspan="7">Cole o ranking e clique em Processar para ver os resultados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Cadastro de membros -->
+        <section class="cadastro-sec">
+            <h2>➕ Cadastrar Membro</h2>
+            <div class="cadastro-form">
+                <input type="text" id="cadNome" placeholder="Nome do membro">
+                <input type="text" id="cadID" placeholder="ID do Discord (ex: @scott)">
+                <select id="cadPatente">
+                    <option value="comando">👑 Comando</option>
+                    <option value="admin">⚙️ Administrador</option>
+                    <option value="elite">⭐ Elite</option>
+                    <option value="anjo_negro">🪽 Anjo Negro</option>
+                    <option value="core">🦅 CORE</option>
+                </select>
+                <button class="btn-cadastrar" onclick="cadastrarMembro()">Cadastrar</button>
+            </div>
+        </section>
+
+        <!-- Lista de membros cadastrados -->
+        <section class="lista-sec">
+            <h2>📋 Membros Cadastrados</h2>
+            <div id="listaCadastrados">
+                <p style="color:#666;">Nenhum membro cadastrado ainda.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
