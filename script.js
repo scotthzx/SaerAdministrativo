@@ -51,7 +51,7 @@ function getNomePatente(patente) {
         case 'admin': return '⚙️ Administrador';
         case 'elite': return '⭐ Elite';
         case 'anjo_negro': return '🪽 Anjo Negro';
-        case 'core': return '🔴 CORE';
+        case 'core': return '🦅 CORE';
         default: return patente;
     }
 }

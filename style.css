@@ -353,7 +353,7 @@ table tbody tr:hover td {
 .patente-elite { color: #ffd700; }
 .patente-comando { color: #c7ac71; }
 .patente-admin { color: #4488ff; }
-.patente-core { color: #ff4444; }
+.patente-core { color: #333333; }
 
 .btn-remover-membro {
     background: none;
