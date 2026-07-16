@@ -38,9 +38,9 @@ function getMetaPorPatente(patente) {
     switch(patente) {
         case 'comando': return 0;
         case 'admin': return 0;
-        case 'elite': return 4;
-        case 'anjo_negro': return 2;
-        case 'core': return 0.75;
+        case 'elite': return 2;
+        case 'anjo_negro': return 1;
+        case 'core': return 0.5;    
         default: return 2;
     }
 }
